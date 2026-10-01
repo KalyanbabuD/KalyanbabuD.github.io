@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../constants/portfolio_data.dart';
 import '../models/project_model.dart';
 import '../theme/portfolio_theme.dart';
+import 'store_icons.dart';
 
 class ResumeDialog extends StatelessWidget {
   const ResumeDialog({super.key});
@@ -444,11 +445,11 @@ class ResumeDialog extends StatelessWidget {
                 ),
                 const Spacer(),
                 if (proj.playStoreUrl != null) ...[
-                  const FaIcon(FontAwesomeIcons.googlePlay, size: 11, color: Color(0xFF01875F)),
+                  const GooglePlayIcon(size: 13, isMultiColor: true),
                   const SizedBox(width: 8),
                 ],
                 if (proj.appStoreUrl != null) ...[
-                  FaIcon(FontAwesomeIcons.apple, size: 12, color: isDark ? Colors.white70 : Colors.black87),
+                  AppleStoreIcon(size: 13, color: isDark ? Colors.white70 : Colors.black87),
                   const SizedBox(width: 8),
                 ],
                 if (proj.githubUrl != null) ...[

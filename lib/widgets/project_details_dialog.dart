@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/project_model.dart';
 import '../theme/portfolio_theme.dart';
+import 'store_icons.dart';
 
 class ProjectDetailsDialog extends StatelessWidget {
   final ProjectModel project;
@@ -337,25 +338,25 @@ class ProjectDetailsDialog extends StatelessWidget {
                       if (project.playStoreUrl != null)
                         FilledButton.icon(
                           onPressed: () => _launchUrl(project.playStoreUrl!),
-                          icon: const FaIcon(FontAwesomeIcons.googlePlay, size: 13),
+                          icon: const GooglePlayIcon(size: 14, isMultiColor: true),
                           label: const Text('Play Store'),
                           style: FilledButton.styleFrom(
                             backgroundColor: const Color(0xFF01875F),
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                           ),
                         ),
                       if (project.appStoreUrl != null)
                         FilledButton.icon(
                           onPressed: () => _launchUrl(project.appStoreUrl!),
-                          icon: const FaIcon(FontAwesomeIcons.apple, size: 15),
+                          icon: const AppleStoreIcon(size: 15, color: Colors.white),
                           label: const Text('App Store'),
                           style: FilledButton.styleFrom(
                             backgroundColor: isDark ? const Color(0xFF1E293B) : const Color(0xFF0F172A),
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                           ),
                         ),
                       if (project.githubUrl != null)

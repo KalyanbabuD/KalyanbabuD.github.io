@@ -5,6 +5,7 @@ import '../constants/portfolio_data.dart';
 import '../models/project_model.dart';
 import '../theme/portfolio_theme.dart';
 import 'project_details_dialog.dart';
+import 'store_icons.dart';
 
 class ProjectsSection extends StatefulWidget {
   const ProjectsSection({super.key});
@@ -493,6 +494,37 @@ class _ProjectsSectionState extends State<ProjectsSection> {
               ),
 
               const Spacer(),
+              // Top-right store indicator badges
+              if (project.playStoreUrl != null) ...[
+                Tooltip(
+                  message: 'Available on Google Play Store',
+                  child: Container(
+                    padding: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF01875F).withOpacity(0.12),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: const Color(0xFF01875F).withOpacity(0.35)),
+                    ),
+                    child: const GooglePlayIcon(size: 13, isMultiColor: true),
+                  ),
+                ),
+                const SizedBox(width: 6),
+              ],
+              if (project.appStoreUrl != null) ...[
+                Tooltip(
+                  message: 'Available on Apple App Store',
+                  child: Container(
+                    padding: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: (isDark ? Colors.white : Colors.black).withOpacity(0.08),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: isDark ? Colors.white24 : Colors.black26),
+                    ),
+                    child: AppleStoreIcon(size: 13, color: isDark ? Colors.white : Colors.black87),
+                  ),
+                ),
+                const SizedBox(width: 6),
+              ],
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -623,25 +655,25 @@ class _ProjectsSectionState extends State<ProjectsSection> {
               if (project.playStoreUrl != null)
                 FilledButton.icon(
                   onPressed: () => _launchUrl(project.playStoreUrl!),
-                  icon: const FaIcon(FontAwesomeIcons.googlePlay, size: 13),
+                  icon: const GooglePlayIcon(size: 14, isMultiColor: true),
                   label: const Text('Play Store'),
                   style: FilledButton.styleFrom(
                     backgroundColor: const Color(0xFF01875F),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                   ),
                 ),
               if (project.appStoreUrl != null)
                 FilledButton.icon(
                   onPressed: () => _launchUrl(project.appStoreUrl!),
-                  icon: const FaIcon(FontAwesomeIcons.apple, size: 15),
+                  icon: const AppleStoreIcon(size: 15, color: Colors.white),
                   label: const Text('App Store'),
                   style: FilledButton.styleFrom(
                     backgroundColor: isDark ? const Color(0xFF1E293B) : const Color(0xFF0F172A),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                   ),
                 ),
               if (project.githubUrl != null)
