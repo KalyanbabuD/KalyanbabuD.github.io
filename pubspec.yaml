@@ -1,0 +1,21 @@
+name: kalyan_portfolio
+publish_to: 'none'
+description: Kalyan Babu - Senior Mobile Application Developer Portfolio
+version: 1.0.0+1
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^11.0.0
+  google_fonts: ^8.2.1
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
