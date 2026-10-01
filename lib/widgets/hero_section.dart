@@ -59,7 +59,9 @@ class HeroSection extends StatelessWidget {
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 1200),
-          child: isDesktop ? _buildDesktopLayout(context) : _buildMobileLayout(context),
+          child: isDesktop
+              ? _buildDesktopLayout(context)
+              : _buildMobileLayout(context),
         ),
       ),
     );
@@ -150,14 +152,22 @@ class HeroSection extends StatelessWidget {
         ShaderMask(
           shaderCallback: (bounds) => (isDark
                   ? const LinearGradient(
-                      colors: [Colors.white, Color(0xFFE2E8F0), Color(0xFF00D2FF)],
+                      colors: [
+                        Colors.white,
+                        Color(0xFFE2E8F0),
+                        Color(0xFF00D2FF)
+                      ],
                     )
                   : const LinearGradient(
-                      colors: [Color(0xFF0F172A), Color(0xFF1E293B), Color(0xFF3A7BD5)],
+                      colors: [
+                        Color(0xFF0F172A),
+                        Color(0xFF1E293B),
+                        Color(0xFF3A7BD5)
+                      ],
                     ))
               .createShader(bounds),
           child: Text(
-            'Crafting High-Performance,\nScalable Mobile & Enterprise Solutions.',
+            'Scalable Mobile & Enterprise Solutions.',
             style: Theme.of(context).textTheme.displayLarge?.copyWith(
                   height: 1.15,
                 ),
@@ -171,7 +181,8 @@ class HeroSection extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontSize: 17,
                 height: 1.6,
-                color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569),
+                color:
+                    isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569),
               ),
         ),
         const SizedBox(height: 32),
@@ -186,11 +197,17 @@ class HeroSection extends StatelessWidget {
               icon: const Icon(Icons.rocket_launch_rounded, size: 18),
               label: const Text('Explore 10+ Projects'),
               style: FilledButton.styleFrom(
-                backgroundColor: isDark ? PortfolioTheme.primaryCyan : PortfolioTheme.primaryBlue,
-                foregroundColor: isDark ? const Color(0xFF0B0F19) : Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
-                textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                backgroundColor: isDark
+                    ? PortfolioTheme.primaryCyan
+                    : PortfolioTheme.primaryBlue,
+                foregroundColor:
+                    isDark ? const Color(0xFF0B0F19) : Colors.white,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+                textStyle:
+                    const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
                 elevation: 4,
               ),
             ),
@@ -201,9 +218,12 @@ class HeroSection extends StatelessWidget {
               style: FilledButton.styleFrom(
                 backgroundColor: const Color(0xFF0A66C2),
                 foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
-                textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+                textStyle:
+                    const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
                 elevation: 4,
               ),
             ),
@@ -214,12 +234,17 @@ class HeroSection extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 foregroundColor: isDark ? Colors.white : Colors.black87,
                 side: BorderSide(
-                  color: isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder,
+                  color: isDark
+                      ? PortfolioTheme.darkBorder
+                      : PortfolioTheme.lightBorder,
                   width: 1.5,
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                textStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                textStyle:
+                    const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
               ),
             ),
           ],
@@ -237,23 +262,28 @@ class HeroSection extends StatelessWidget {
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
-                color: isDark ? PortfolioTheme.darkTextSecondary : PortfolioTheme.lightTextSecondary,
+                color: isDark
+                    ? PortfolioTheme.darkTextSecondary
+                    : PortfolioTheme.lightTextSecondary,
               ),
             ),
             _socialChip(
-              icon: const Icon(Icons.email_outlined, size: 14, color: PortfolioTheme.primaryCyan),
+              icon: const Icon(Icons.email_outlined,
+                  size: 14, color: PortfolioTheme.primaryCyan),
               label: PortfolioData.email,
               onTap: () => _launchUrl('mailto:${PortfolioData.email}'),
               context: context,
             ),
             _socialChip(
-              icon: const Icon(Icons.phone_outlined, size: 14, color: PortfolioTheme.primaryCyan),
+              icon: const Icon(Icons.phone_outlined,
+                  size: 14, color: PortfolioTheme.primaryCyan),
               label: PortfolioData.phone,
               onTap: () => _launchUrl('tel:${PortfolioData.phone}'),
               context: context,
             ),
             _socialChip(
-              icon: const FaIcon(FontAwesomeIcons.whatsapp, size: 13, color: PortfolioTheme.primaryCyan),
+              icon: const FaIcon(FontAwesomeIcons.whatsapp,
+                  size: 13, color: PortfolioTheme.primaryCyan),
               label: 'WhatsApp',
               onTap: () => _launchUrl('https://wa.me/916300030418'),
               context: context,
@@ -280,7 +310,8 @@ class HeroSection extends StatelessWidget {
           color: isDark ? PortfolioTheme.darkCard : const Color(0xFFF1F5F9),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder,
+            color:
+                isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder,
           ),
         ),
         child: Row(
@@ -311,7 +342,8 @@ class HeroSection extends StatelessWidget {
         color: isDark ? PortfolioTheme.darkCard : Colors.white,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder,
+          color:
+              isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder,
           width: 1.5,
         ),
         boxShadow: [
@@ -332,11 +364,15 @@ class HeroSection extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                  color: isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder,
+                  color: isDark
+                      ? PortfolioTheme.darkBorder
+                      : PortfolioTheme.lightBorder,
                 ),
               ),
-              color: isDark ? PortfolioTheme.darkSurface : const Color(0xFFF8FAFC),
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+              color:
+                  isDark ? PortfolioTheme.darkSurface : const Color(0xFFF8FAFC),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(24)),
             ),
             child: Row(
               children: [
@@ -364,15 +400,6 @@ class HeroSection extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: Color(0xFF10B981),
                     shape: BoxShape.circle,
-                  ),
-                ),
-                const Spacer(),
-                Text(
-                  'kalyan_babu.dart',
-                  style: TextStyle(
-                    fontFamily: 'monospace',
-                    fontSize: 12,
-                    color: isDark ? PortfolioTheme.darkTextSecondary : PortfolioTheme.lightTextSecondary,
                   ),
                 ),
               ],
@@ -405,7 +432,8 @@ class HeroSection extends StatelessWidget {
                       height: 92,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: isDark ? PortfolioTheme.darkSurface : Colors.white,
+                        color:
+                            isDark ? PortfolioTheme.darkSurface : Colors.white,
                       ),
                       child: Center(
                         child: Text(
@@ -414,7 +442,8 @@ class HeroSection extends StatelessWidget {
                             fontSize: 34,
                             fontWeight: FontWeight.w900,
                             foreground: Paint()
-                              ..shader = PortfolioTheme.heroGradient.createShader(
+                              ..shader =
+                                  PortfolioTheme.heroGradient.createShader(
                                 const Rect.fromLTWH(0, 0, 100, 100),
                               ),
                           ),
@@ -439,14 +468,17 @@ class HeroSection extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: isDark ? PortfolioTheme.primaryCyan : PortfolioTheme.primaryBlue,
+                    color: isDark
+                        ? PortfolioTheme.primaryCyan
+                        : PortfolioTheme.primaryBlue,
                   ),
                 ),
                 const SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.location_on_outlined, size: 14, color: PortfolioTheme.darkTextSecondary),
+                    const Icon(Icons.location_on_outlined,
+                        size: 14, color: PortfolioTheme.darkTextSecondary),
                     const SizedBox(width: 4),
                     Text(
                       PortfolioData.location,
@@ -473,20 +505,35 @@ class HeroSection extends StatelessWidget {
 
                 // Quick stats snippet box
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                    color: isDark ? PortfolioTheme.darkSurface : const Color(0xFFF8FAFC),
+                    color: isDark
+                        ? PortfolioTheme.darkSurface
+                        : const Color(0xFFF8FAFC),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
-                      color: isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder,
+                      color: isDark
+                          ? PortfolioTheme.darkBorder
+                          : PortfolioTheme.lightBorder,
                     ),
                   ),
                   child: Row(
                     children: [
                       Expanded(child: _profileStat('5+ Yrs', 'Experience')),
-                      Container(height: 24, width: 1, color: isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder),
+                      Container(
+                          height: 24,
+                          width: 1,
+                          color: isDark
+                              ? PortfolioTheme.darkBorder
+                              : PortfolioTheme.lightBorder),
                       Expanded(child: _profileStat('10+ Apps', 'Shipped')),
-                      Container(height: 24, width: 1, color: isDark ? PortfolioTheme.darkBorder : PortfolioTheme.lightBorder),
+                      Container(
+                          height: 24,
+                          width: 1,
+                          color: isDark
+                              ? PortfolioTheme.darkBorder
+                              : PortfolioTheme.lightBorder),
                       Expanded(child: _profileStat('99.8%', 'Crash-Free')),
                     ],
                   ),
